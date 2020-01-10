@@ -20,7 +20,10 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  let array = [];
+
+if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0)
+
+  let values = [];
 }
 
 function difference(numbers) {
