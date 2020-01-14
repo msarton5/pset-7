@@ -21,45 +21,68 @@ function commonEnd(a, b) {
 
 function endsMeet(values, n) {
 
-let values = [];
-
-if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0)
+if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0){
   return emptyValues = [];
 } else {
+  const firstValue = values[0];
+  const lastValue = values[values.length - 1];
 
+  values.unshift(firstValue);
+  values.push(lastValue);
+
+  return(values);
 }
 
 function difference(numbers) {
-  let numbers = [];
+
+if (numbers.length === 0 || numbers.length < 1 || Number.isNaN(numbers)) {
+  return "undefined";
+}
+
 }
 
 function max(number) {
-  let number = [];
+
+if (number.length % 2 == 0 || Number.isNaN(number) || number.length < 3 || number.length === 0) {
+  return "undefined";
+}
+
 }
 
 function middle(values) {
-  let values = [];
+
+if (values.length % 2 == 0 || values.length < 3 || values.length === 0) {
+  return "undefined";
+}
+
 }
 
 function increasing(numbers) {
-  let increasing = [];
+
+if (numbers.length % 2 == 0 || Number.isNaN(numbers) || !Number.isInteger(numbers) || numbers.length === 0) {
+  return "false";
+}
+
 }
 
 function everywhere(values, x) {
-  let values = [];
+
+if (values.length === 0 || values.length < 1 || x.length === 0){
+  return "false";
+}
+
 }
 
 function consecutive(numbers) {
-  let numbers = [];
+
 }
 
 function balance(numbers) {
-  let numbers = [];
   console.log("test");
 }
 
 function clumps(values) {
-  let values = [];
+
 }
 
 /*
