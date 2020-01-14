@@ -35,23 +35,24 @@ function endsMeet(values, n) {
     }
   }
 
-  return(returnMe);
-
-  // console.log(firstValue + lastValue);
+  return returnMe;
 }
 
 function difference(numbers) {
+  if (!numbers || numbers.length < 1 || !numbers.every(isNumber)) {
+    return undefined;
+  } else {
+    const min = Math.min(...numbers);
+    const max = Math.max(...numbers);
 
-if (numbers.length === 0 || numbers.length < 1 || Number.isNaN(numbers)) {
-  return "undefined";
-}
-
+    return max - min;
+  }
 }
 
 function max(number) {
 
-if (number.length % 2 == 0 || Number.isNaN(number) || number.length < 3 || number.length === 0) {
-  return "undefined";
+if (number.length % 2 == 0 || !numbers.every(isNumber) || number.length < 3 || number.length === 0) {
+  return undefined;
 }
 
 }
@@ -59,7 +60,7 @@ if (number.length % 2 == 0 || Number.isNaN(number) || number.length < 3 || numbe
 function middle(values) {
 
 if (values.length % 2 == 0 || values.length < 3 || values.length === 0) {
-  return "undefined";
+  return undefined;
 }
 
 }
@@ -67,7 +68,7 @@ if (values.length % 2 == 0 || values.length < 3 || values.length === 0) {
 function increasing(numbers) {
 
 if (numbers.length % 2 == 0 || Number.isNaN(numbers) || !Number.isInteger(numbers) || numbers.length === 0) {
-  return "false";
+  return false;
 }
 
 }
@@ -75,7 +76,7 @@ if (numbers.length % 2 == 0 || Number.isNaN(numbers) || !Number.isInteger(number
 function everywhere(values, x) {
 
 if (values.length === 0 || values.length < 1 || x.length === 0){
-  return "false";
+  return false;
 }
 
 }
@@ -90,6 +91,12 @@ function balance(numbers) {
 
 function clumps(values) {
 
+}
+
+///
+
+function isNumber(value) {
+  return typeof value === "number";
 }
 
 /*
