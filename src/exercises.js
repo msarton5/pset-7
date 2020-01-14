@@ -21,42 +21,45 @@ function commonEnd(a, b) {
 
 function endsMeet(values, n) {
 
-if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0)
+let values = [];
 
-  let values = [];
+if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0)
+  return emptyValues = [];
+} else {
+
 }
 
 function difference(numbers) {
-  let empty = [];
+  let numbers = [];
 }
 
 function max(number) {
-  let empty = [];
+  let number = [];
 }
 
 function middle(values) {
-  let empty = [];
+  let values = [];
 }
 
 function increasing(numbers) {
-  let empty = [];
+  let increasing = [];
 }
 
 function everywhere(values, x) {
-  let empty = [];
+  let values = [];
 }
 
 function consecutive(numbers) {
-  // write your code here
+  let numbers = [];
 }
 
 function balance(numbers) {
-  // write your code here
+  let numbers = [];
   console.log("test");
 }
 
 function clumps(values) {
-  // write your code here
+  let values = [];
 }
 
 /*
