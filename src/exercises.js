@@ -20,17 +20,24 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
+  var returnMe = [];
+  if (values === null || values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0){
+    return empty = [];
+  } else if (n === 0) {
+    return values;
+  } else {
 
-if (values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0){
-  return emptyValues = [];
-} else {
-  const firstValue = values[0];
-  const lastValue = values[values.length - 1];
+    for (var i = 0; i < n; i++) {
+      returnMe.push(values[i]);
+    }
+    for (var i = 0; i < n; i++) {
+      returnMe.push(values[((values.length - n) + i)])
+    }
+  }
 
-  values.unshift(firstValue);
-  values.push(lastValue);
+  return(returnMe);
 
-  return(values);
+  // console.log(firstValue + lastValue);
 }
 
 function difference(numbers) {
