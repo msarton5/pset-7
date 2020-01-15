@@ -51,8 +51,19 @@ function difference(numbers) {
 
 function max(number) {
 
-if (number.length % 2 == 0 || !numbers.every(isNumber) || number.length < 3 || number.length === 0) {
+if (!number || number.length % 2 == 0 || !number.every(isNumber) || number.length < 3) {
   return undefined;
+} else {
+  
+  const first = number[0];
+  const middle = number[(number.length - 1)/ 2];
+  const last = number[number.length -1];
+
+  var newArray = [first, middle, last];
+
+  const greatest = Math.max(...newArray);
+
+  return greatest;
 }
 
 }
