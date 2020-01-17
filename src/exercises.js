@@ -93,8 +93,25 @@ if (values.length === 0 || values.length < 1 || x.length === 0){
 }
 
 function consecutive(numbers) {
+  if (!numbers || numbers.length < 3 || Number.isNaN(numbers) || !Number.isInteger(numbers)) {
 
-}
+    return false;
+  } else {
+
+      for (i = 0; i < numbers.length; i++){
+          if (numbers[i] % 2 == 0 && (numbers[i + 1]) % 2 == 0 && (numbers[i + 2]) % 2 == 0) {
+  console.log(numbers);
+            return true;
+          } else if (numbers[i] % 2 == 1 && (numbers[i + 1]) % 2 == 1 && (numbers[i + 2]) % 2 == 1) {
+            return true;
+          } else {
+            return false;
+
+          }
+      }
+  }
+
+  }
 
 function balance(numbers) {
   console.log("test");
