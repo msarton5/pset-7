@@ -21,10 +21,10 @@ function commonEnd(a, b) {
 
 function endsMeet(values, n) {
   var returnMe = [];
-  if (values === null || values.length === 0 || values.length < n || !Number.isInteger(n) || n < 0){
-    return empty = [];
+  if (!values || values.length < n || !Number.isInteger(n) || n < 0){
+      return returnMe;
   } else if (n === 0) {
-    return values;
+    return returnMe;
   } else {
 
     for (var i = 0; i < n; i++) {
@@ -54,7 +54,7 @@ function max(number) {
 if (!number || number.length % 2 == 0 || !number.every(isNumber) || number.length < 3) {
   return undefined;
 } else {
-  
+
   const first = number[0];
   const middle = number[(number.length - 1)/ 2];
   const last = number[number.length -1];
@@ -69,40 +69,85 @@ if (!number || number.length % 2 == 0 || !number.every(isNumber) || number.lengt
 }
 
 function middle(values) {
+var newArray = [];
+if (!values || values.length % 2 == 0 || values.length < 3) {
+  return newArray;
+} else {
+  const middle = values[(values.length - 1)/ 2];
+  const first = values[((values.length - 1)/ 2) - 1];
+  const last = values[((values.length - 1)/ 2) + 1];
 
-if (values.length % 2 == 0 || values.length < 3 || values.length === 0) {
-  return undefined;
+  newArray.push(first);
+  newArray.push(middle);
+  newArray.push(last);
+
+  return newArray;
+
 }
 
 }
 
 function increasing(numbers) {
 
-if (numbers.length % 2 == 0 || Number.isNaN(numbers) || !Number.isInteger(numbers) || numbers.length === 0) {
+if (numbers == undefined || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
+  //console.log("here");
   return false;
 }
 
+var counter = 0;
+var currentNum = 0;
+
+for (var i = 0; i < numbers.length; i++) {
+  if (i == 0) {
+    counter = 1;
+    currentNum = numbers[i];
+  } else if (numbers[i] == currentNum + 1) {
+    counter++;
+  } else {
+    counter = 1;
+  }
+
+  if (counter == 3) {
+    return true;
+  }
+  currentNum = numbers[i];
+}
+
+// for (var i = 0; i < numbers.length; i++){
+//
+//     if (numbers[i] == (numbers[i + 1] - 1) && (numbers[i + 1]) == (numbers[i + 2] - 1)   && (numbers[i + 2]) == (numbers[i + 3] - 1)) {
+//         return true;
+//     }
+// }
+return false;
 }
 
 function everywhere(values, x) {
-
-if (values.length === 0 || values.length < 1 || x.length === 0){
+console.log(values);
+if (!values || values.length < 1 || x == 0){
   return false;
+} else {
+  // if(){
+  //
+  // }else{
+  //
+  // }
 }
 
 }
 
 function consecutive(numbers) {
-  if (!numbers || numbers.length < 3 || Number.isNaN(numbers) || !Number.isInteger(numbers)) {
-
+  if (!numbers || numbers.length < 3 || Number.isNaN(numbers) || !numbers.every(isAnInteger)) {
+console.log(numbers);
     return false;
   } else {
 
       for (i = 0; i < numbers.length; i++){
           if (numbers[i] % 2 == 0 && (numbers[i + 1]) % 2 == 0 && (numbers[i + 2]) % 2 == 0) {
-  console.log(numbers);
+
             return true;
           } else if (numbers[i] % 2 == 1 && (numbers[i + 1]) % 2 == 1 && (numbers[i + 2]) % 2 == 1) {
+
             return true;
           } else {
             return false;
@@ -127,6 +172,15 @@ function isNumber(value) {
   return typeof value === "number";
 }
 
+function isAnInteger(numbers) {
+  //return typeof numbers === "integer";
+  for (var i = 0; i < numbers.length; i++) {
+    if (!(numbers[i] % 1 == 0)) {
+      return false;
+    }
+  }
+  return true;
+}
 /*
  * Exports all functions for use in external grader.js file. Do not modify.
  */
@@ -143,3 +197,4 @@ module.exports = {
   balance,
   clumps
 };
+
