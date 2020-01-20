@@ -141,31 +141,50 @@ function everywhere(values, x) {
 
 function consecutive(numbers) {
 
-var evaluate = true;
+// var evaluate = true;
 
   if (!numbers || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
     return false;
   } else {
-
+    var correct = 0
     for (var i = 0; i < numbers.length; i++) {
       if (numbers[i] % 2 == 0 && numbers[i + 1] % 2 == 0 && numbers[i + 2] % 2 == 0) {
-          return true;
-          var evaluate = false;
+          correct += 1;
+          // var evaluate = false;
       } else if (numbers[i] % 2 == 1 && numbers[i + 1] % 2 == 1 && numbers[i + 2] % 2 == 1) {
-          return true;
-          var evaluate = false;
-      } else {
-          return false;
+          correct += 1;
+          // var evaluate = false;
       }
     }
-    if (evaluate != false) {
+    if (correct > 0) {
+      return true;
+    } else {
       return false;
     }
   }
 }
 
 function balance(numbers) {
+  if (!numbers || numbers.length < 2 || !numbers.every(isNumber) || !numbers.every(isAnInteger)){
+    return false;
+  } else {
 
+    var left = 0;
+    var right = 0;
+
+    for (var x = 0; x < numbers.length; x++) {
+      right += numbers[x];
+    }
+
+    for (var i = 0; i < numbers.length - 1; i++) {
+
+        if (left != right) {
+          left += numbers[i];
+          right -= numbers[i];
+        }
+    }
+    return left == right;
+  }
 }
 
 function clumps(values) {
