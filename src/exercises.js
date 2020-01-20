@@ -69,57 +69,51 @@ if (!number || number.length % 2 == 0 || !number.every(isNumber) || number.lengt
 }
 
 function middle(values) {
-var newArray = [];
-if (!values || values.length % 2 == 0 || values.length < 3) {
-  return newArray;
-} else {
-  const middle = values[(values.length - 1)/ 2];
-  const first = values[((values.length - 1)/ 2) - 1];
-  const last = values[((values.length - 1)/ 2) + 1];
 
-  newArray.push(first);
-  newArray.push(middle);
-  newArray.push(last);
+  var newArray = [];
 
-  return newArray;
+  if (!values || values.length % 2 == 0 || values.length < 3) {
+    return newArray;
+  } else {
+    const middle = values[(values.length - 1)/ 2];
+    const first = values[((values.length - 1)/ 2) - 1];
+    const last = values[((values.length - 1)/ 2) + 1];
 
-}
+    newArray.push(first);
+    newArray.push(middle);
+    newArray.push(last);
+
+    return newArray;
+  }
 
 }
 
 function increasing(numbers) {
 
-if (numbers == undefined || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
-  //console.log("here");
-  return false;
-}
+  if (numbers == undefined || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
+    return false;
+  }
 
-var counter = 0;
-var currentNum = 0;
+  var counter = 0;
+  var currentNum = 0;
 
-for (var i = 0; i < numbers.length; i++) {
-  if (i == 0) {
-    counter = 1;
+  for (var i = 0; i < numbers.length; i++) {
+    if (i == 0) {
+      counter = 1;
+      currentNum = numbers[i];
+    } else if (numbers[i] == currentNum + 1) {
+      counter++;
+    } else {
+      counter = 1;
+    }
+
+    if (counter == 3) {
+      return true;
+    }
     currentNum = numbers[i];
-  } else if (numbers[i] == currentNum + 1) {
-    counter++;
-  } else {
-    counter = 1;
   }
 
-  if (counter == 3) {
-    return true;
-  }
-  currentNum = numbers[i];
-}
-
-// for (var i = 0; i < numbers.length; i++){
-//
-//     if (numbers[i] == (numbers[i + 1] - 1) && (numbers[i + 1]) == (numbers[i + 2] - 1)   && (numbers[i + 2]) == (numbers[i + 3] - 1)) {
-//         return true;
-//     }
-// }
-return false;
+  return false;
 }
 
 function everywhere(values, x) {
@@ -127,43 +121,60 @@ console.log(values);
 if (!values || values.length < 1 || x == 0){
   return false;
 } else {
-  // if(){
-  //
-  // }else{
-  //
-  // }
+// plan: for every other item in array, check to see if the next item is equal to 'x'.
+// plan: if i == 0,
+  var counter = 0;
+  var currentNum = 0;
+
+  for (var i = 0; i < 0; i++){
+    if (i == 0) {
+      counter = 1;
+      currentNum = values[i];
+    }
+  }
+
 }
 
 }
 
 function consecutive(numbers) {
-  if (!numbers || numbers.length < 3 || Number.isNaN(numbers) || !numbers.every(isAnInteger)) {
-console.log(numbers);
+
+  if (!numbers || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
     return false;
   } else {
 
-      for (i = 0; i < numbers.length; i++){
-          if (numbers[i] % 2 == 0 && (numbers[i + 1]) % 2 == 0 && (numbers[i + 2]) % 2 == 0) {
-
-            return true;
-          } else if (numbers[i] % 2 == 1 && (numbers[i + 1]) % 2 == 1 && (numbers[i + 2]) % 2 == 1) {
-
-            return true;
-          } else {
-            return false;
-
-          }
+    for (var i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 == 0 && numbers[i + 1] % 2 == 0 && numbers[i + 2] % 2 == 0) {
+          return true;
+      } else if (numbers[i] % 2 == 1 && numbers[i + 1] % 2 == 1 && numbers[i + 2] % 2 == 1) {
+          return true;
+      } else {
+          return false;
       }
-  }
+    }
 
   }
+}
 
 function balance(numbers) {
-  console.log("test");
+  
 }
 
 function clumps(values) {
+    if (!values) {
+      return -1;
+    } else {
 
+      var count = 0;
+
+      for (var i = 0; i < values.length; i++) {
+        if (values[i] == values[i + 1] && values[i] !== values[i - 1]) {
+          var count = count + 1;
+        }
+      }
+
+return count;
+    }
 }
 
 ///
@@ -197,4 +208,3 @@ module.exports = {
   balance,
   clumps
 };
-
