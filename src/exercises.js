@@ -117,27 +117,31 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-console.log(values);
-if (!values || values.length < 1 || x == 0){
-  return false;
-} else {
-// plan: for every other item in array, check to see if the next item is equal to 'x'.
-// plan: if i == 0,
-  var counter = 0;
-  var currentNum = 0;
 
-  for (var i = 0; i < 0; i++){
-    if (i == 0) {
-      counter = 1;
-      currentNum = values[i];
+  var evaluate = true;
+
+  if (!values || values.length < 1 || x == 0) {
+    return false;
+  } else {
+
+    for (var i = 0; i < values.length; i++){
+      if (values[i] !== x && values[i + 1] !== x && values[i - 1] !== x) {
+        var evaluate = false;
+      }
+    }
+
+    if (evaluate) {
+      return true;
+    } else {
+      return false;
     }
   }
 
 }
 
-}
-
 function consecutive(numbers) {
+
+var evaluate = true;
 
   if (!numbers || numbers.length < 3 || !numbers.every(isNumber) ||  !numbers.every(isAnInteger)) {
     return false;
@@ -146,18 +150,22 @@ function consecutive(numbers) {
     for (var i = 0; i < numbers.length; i++) {
       if (numbers[i] % 2 == 0 && numbers[i + 1] % 2 == 0 && numbers[i + 2] % 2 == 0) {
           return true;
+          var evaluate = false;
       } else if (numbers[i] % 2 == 1 && numbers[i + 1] % 2 == 1 && numbers[i + 2] % 2 == 1) {
           return true;
+          var evaluate = false;
       } else {
           return false;
       }
     }
-
+    if (evaluate != false) {
+      return false;
+    }
   }
 }
 
 function balance(numbers) {
-  
+
 }
 
 function clumps(values) {
@@ -168,7 +176,7 @@ function clumps(values) {
       var count = 0;
 
       for (var i = 0; i < values.length; i++) {
-        if (values[i] == values[i + 1] && values[i] !== values[i - 1]) {
+        if (values[i] !== values[i - 1] && values[i] == values[i + 1]) {
           var count = count + 1;
         }
       }
